@@ -52,7 +52,7 @@ ifneq (,$(findstring FreeBSD,$(OS)))
 LDSCRIPT	= $(TOPDIR)/gnuefi/elf_$(ARCH)_fbsd_efi.lds
 endif
 
-LDFLAGS		+= -shared -Bsymbolic -L../lib -L../gnuefi $(CRTOBJS)
+LDFLAGS		+= -shared -Bsymbolic -L../lib -L../gnuefi -z noexecstack $(CRTOBJS)
 
 LOADLIBES	+= -lefi -lgnuefi
 LOADLIBES	+= $(LIBGCC)
